@@ -32,8 +32,6 @@ class TasksPresenter(val tasksRepository: TasksRepository, val tasksView: TasksC
 
     override var currentFiltering = TasksFilterType.ALL_TASKS
 
-    private var firstLoad = true
-
     init {
         tasksView.presenter = this
     }
@@ -52,8 +50,7 @@ class TasksPresenter(val tasksRepository: TasksRepository, val tasksView: TasksC
 
     override fun loadTasks(forceUpdate: Boolean) {
         // Simplification for sample: a network reload will be forced on first load.
-        loadTasks(forceUpdate || firstLoad, true)
-        firstLoad = false
+        loadTasks(forceUpdate, true)
     }
 
     /**

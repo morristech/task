@@ -26,7 +26,7 @@ import com.example.android.architecture.blueprints.todoapp.data.Task
 /**
  * The Room Database that contains the Task table.
  */
-@Database(entities = arrayOf(Task::class), version = 1)
+@Database(entities = [Task::class], version = 1)
 abstract class ToDoDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TasksDao
@@ -40,8 +40,8 @@ abstract class ToDoDatabase : RoomDatabase() {
         fun getInstance(context: Context): ToDoDatabase {
             synchronized(lock) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.applicationContext,
-                            ToDoDatabase::class.java, "Tasks.db")
+                    INSTANCE = Room
+                            .databaseBuilder(context.applicationContext, ToDoDatabase::class.java, "Tasks.db")
                             .build()
                 }
                 return INSTANCE!!
