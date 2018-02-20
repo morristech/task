@@ -19,6 +19,7 @@ import android.support.annotation.VisibleForTesting
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource
 import com.example.android.architecture.blueprints.todoapp.util.AppExecutors
+import java.util.Random
 
 
 /**
@@ -35,6 +36,9 @@ class TasksLocalDataSource private constructor(
      */
     override fun getTasks(callback: TasksDataSource.LoadTasksCallback) {
         appExecutors.diskIO.execute {
+            // simulate a slow query
+            Thread.sleep(Random().nextInt(3_000).toLong())
+
             val tasks = tasksDao.getTasks()
             appExecutors.mainThread.execute {
                 if (tasks.isEmpty()) {

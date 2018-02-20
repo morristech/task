@@ -16,6 +16,8 @@ class TasksScreenTest {
         AppHelper.launchApp()
 
         TasksScreen.screen.check(matches(isDisplayed()))
+        waitForDataLoaded()
+
         TasksScreen.addNewToDoButton.perform(click())
 
         NewToDoScreen.screen.check(matches(isDisplayed()))
@@ -24,6 +26,8 @@ class TasksScreenTest {
         NewToDoScreen.addNewToDoButton.perform(click())
 
         TasksScreen.screen.check(matches(isDisplayed()))
+        waitForDataLoaded()
+
         TasksScreen.note("test").check(matches(isDisplayed()))
 
         // TODO: additionally, open created todo and verify the title and the description
@@ -41,5 +45,10 @@ class TasksScreenTest {
     @Test
     fun testCanUpdateExistingToDo() {
         TODO("implement")
+    }
+
+    private fun waitForDataLoaded() {
+        // TODO: Loading all tasks is slow, use a sleep temporary
+        Thread.sleep(3_000L)
     }
 }

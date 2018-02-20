@@ -53,10 +53,10 @@ class TasksRepository(
      */
     override fun getTasks(callback: TasksDataSource.LoadTasksCallback) {
         // Respond immediately with cache if available and not dirty
-        if (cachedTasks.isNotEmpty() && !cacheIsDirty) {
-            callback.onTasksLoaded(ArrayList(cachedTasks.values))
-            return
-        }
+//        if (cachedTasks.isNotEmpty() && !cacheIsDirty) {
+//            callback.onTasksLoaded(ArrayList(cachedTasks.values))
+//            return
+//        }
 
         if (cacheIsDirty) {
             // If the cache is dirty we need to fetch new data from the network.
