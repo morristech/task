@@ -15,5 +15,5 @@ object TasksScreen {
     val screen: ViewInteraction = onView(withId(R.id.tasks_layout))
     val addNewToDoButton: ViewInteraction = onView(withId(R.id.fab_add_task))
 
-    fun note(title: String) = onView(allOf(isDescendantOfA(withId(R.id.task_item)), withText(title)))
+    fun note(title: String): ViewInteraction = onView(allOf(isDescendantOfA(withId(R.id.task_item)), withText(title)))
 }
