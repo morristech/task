@@ -1,6 +1,8 @@
-# Interview questions
+# Task
 
-
-### Simple Note
-[Note](https://www.evernote.com/shard/s12/nl/174186626/351031ab-955e-4b84-85e0-1180e81111cb/)
-Branch: `task/simple-note`
+The given application can view, create and delete notes. However, from an engineering perspective
+it contains many flaws. Try to find problematic pieces in the code and fix them. Don’t look for
+specific bugs and don’t focus on the UI. Pay more attention to the business logic. You’re free to
+choose any framework and library that you think are helpful to solve the issues. If you detect
+problems but time is running out, then please add a comment so that it can be discussed later. You
+can also commit changes in the local repository to see specific changes in isolation.
